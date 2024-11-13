@@ -394,11 +394,11 @@
       "Components": [
         {
           "__type": "astral_base.SCPRP.Debug",
-          "__guid": "9c6f1b68-4c46-4c0a-ba45-6badc0b810ad"
+          "__guid": "52230a4f-15c5-4856-9d79-dc587f6f02ab"
         },
         {
           "__type": "astral_base.SCPRP.EventHandler",
-          "__guid": "deb9a10e-ef4c-4ea2-a48d-cf8d9efeaa90"
+          "__guid": "0b73a0df-36d3-4aba-82ee-1cdef09404c2"
         }
       ]
     }
