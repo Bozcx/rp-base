@@ -369,23 +369,6 @@
       ]
     },
     {
-      "__guid": "e48413cd-224a-42f7-a554-ace61ede7979",
-      "Flags": 0,
-      "Name": "Screen",
-      "Position": "-126.4292,49.63094,115.5769",
-      "Components": [
-        {
-          "__type": "Sandbox.ScreenPanel",
-          "__guid": "774e37f9-43c6-41cd-b832-2d49d7562a74",
-          "AutoScreenScale": true,
-          "Opacity": 1,
-          "Scale": 1,
-          "ScaleStrategy": "ConsistentHeight",
-          "ZIndex": 100
-        }
-      ]
-    },
-    {
       "__guid": "30b8d234-74a0-49cd-b750-2c7c7563e2be",
       "Flags": 0,
       "Name": "EventHandler",
