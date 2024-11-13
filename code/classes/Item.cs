@@ -2,17 +2,18 @@ namespace astral_base.SCPRP;
 
 public class Item : Component
 {
-	[Property] public string EntityName { get; set; } = "Base Entity";
+	[HostSync]
+	[Property]
+	public string EntityName { get; set; } = "Base Entity";
 
+	[HostSync]
 	 public Player? Owner { get; set; }
 
-	protected void OnStart()
+	protected override void OnStart()
 	{
 		base.OnStart();
 		Log.Info( $"{EntityName} has been initialized." );
 		SetupPhysics();
-
-		// Ensure the entity has the interact tag to be recognized by the InteractionSystem
 		GameObject.Tags.Add( "Interactable" );
 	}
 
@@ -22,15 +23,7 @@ public class Item : Component
 		GameObject.Destroy();
 	}
 
-	public void OnKill( DamageInfo damageInfo )
-	{
-		OnDestroyed();
-	}
-
-	private void SetupPhysics()
-	{
-		// Setup physics, if necessary.
-	}
+	private void SetupPhysics() {}
 
 	public virtual void OnUse( Player player ) {}
 }
