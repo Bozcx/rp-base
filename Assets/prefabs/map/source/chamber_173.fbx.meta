@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "Chamber 173",
+      "Type": "fbx",
+      "Org": "local",
+      "Ident": "chamber173",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "prefabs/map/source/chamber_173.fbx"
+      }
+    }
+  }
+}
