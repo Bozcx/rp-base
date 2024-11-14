@@ -39,6 +39,7 @@ public sealed partial class Player : Component
 	[Property]
 	public string DisplayName { get; set; } // Display Name, Use SteamName as fallback.
 
+	[Authority]
 	protected override void OnAwake()
     {
 		this.SteamName = Steam.PersonaName;
@@ -53,6 +54,7 @@ public sealed partial class Player : Component
 		Scene.Dispatch( new PlayerLoadedIn( this ) );
     }
 
+	[Authority] // Aka only for that player.
 	protected override void OnPreRender()
 	{
 		if ( Scene.Camera is null )

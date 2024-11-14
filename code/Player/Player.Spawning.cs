@@ -9,7 +9,7 @@ public partial class Player
 		if (!Input.Pressed( "attack1" ) ){ return;  }
         if (this.Health > 0 ){ return;  }
 
-        this.Respawn(Random.Shared.FromList(InitializeSpawners.SpawnList));
+        this.Respawn(Random.Shared.FromList(InitializeSpawners.SpawnList)); // Make the spawns job-specific.
     }
 
     private void Respawn( Spawner spawnPoint )
