@@ -19,7 +19,7 @@ public sealed partial class Player : Component
 
 	[HostSync]
 	[Property]
-	private ulong SteamID { get; set; };
+	private ulong SteamID { get; set; }
 
 	public ulong GetSteamID()
 	{
@@ -28,7 +28,7 @@ public sealed partial class Player : Component
 
 	[HostSync]
 	[Property]
-	private string SteamName { get; set; };
+	private string SteamName { get; set; }
 
 	public string GetSteamName()
 	{
@@ -47,8 +47,8 @@ public sealed partial class Player : Component
 
 		this.DisplayName = SteamName; // For now till we add functionality to this.
 
-		this.Team = Teams.Default(); // This is a must. The player should never not have an ID.
-		this.SetupSpawn(this, this.Team);
+		this.SetJob(Jobs.Default()); // This is a must. The player should never not have an ID.
+		this.SetupSpawn(this, this.Job);
 
 		Log.Info( $"Player object for {this.SteamID} has been initialized." );
 		Scene.Dispatch( new PlayerLoadedIn( this ) );
@@ -62,7 +62,7 @@ public sealed partial class Player : Component
 
 		var hud = Scene.Camera.Hud;
 
-		hud.DrawText( new TextRendering.Scope( this.Health.ToString(), Color.Red, 32 ), Screen.Width * 0.5f );
-		hud.DrawText( new TextRendering.Scope( this.Armor.ToString(), Color.Red, 32 ), Screen.Width * 0.3f );
+		hud.DrawText( new TextRendering.Scope( $"{Health}", Color.Red, 32 ), Screen.Width * 0.5f );
+		hud.DrawText( new TextRendering.Scope( $"{Armor}", Color.Red, 32 ), Screen.Width * 0.3f );
 	}
 }

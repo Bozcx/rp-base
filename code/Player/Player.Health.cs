@@ -22,19 +22,19 @@ public partial class Player
 
 	[HostSync]
 	[Property]
-	private float MaxHealth { get; set; } = 100;
+	private float MaxHealth { get; set; } = 100f;
 	
 	[HostSync]
 	[Property]
-	private float Health { get; set; } = 100;
+	private float Health { get; set; } = 100f;
 
     [HostSync]
 	[Property]
-	private float MaxArmor { get; set; } = 100;
+	private float MaxArmor { get; set; } = 100f;
 
 	[HostSync]
 	[Property]
-	private float Armor { get; set; } = 100;
+	private float Armor { get; set; } = 100f;
 
 	[Authority]
 	[Broadcast( NetPermission.HostOnly )]
@@ -81,10 +81,10 @@ public partial class Player
 
 		if ( this.GodMode ) return;
 
-		float DamageAmount = damage.Amount;
+		var DamageAmount = damage.Amount;
 
-		float damageToArmor = (ArmorSoak / 100f) * DamageAmount;
-		float damageToHP = (1f - (ArmorSoak / 100f)) * DamageAmount;
+		var damageToArmor = (ArmorSoak / 100f) * DamageAmount;
+		var damageToHP = (1f - (ArmorSoak / 100f)) * DamageAmount;
 
 		if (damage.Forced) { // Force ignores armor.
 			this.Health = MathF.Max(this.Health -= DamageAmount, 0);

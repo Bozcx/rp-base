@@ -28,12 +28,12 @@ public partial class Player
 		Log.Info($"{this.GetSteamID()} has been respawned.");
 	}
 
-    public void SetupSpawn(Player player, Team team)
+    public void SetupSpawn(Player player, Job job)
 	{
-		player.SetMaxHealth(team.MaxHealth);
-		player.SetHealth(team.MaxHealth);
-		player.SetMaxArmor(team.MaxArmor);
-		player.SetArmor(team.MaxArmor);
-		Log.Info($"{player.GetSteamID()} Initialized Job onto the player: {team}.");
+		player.SetMaxHealth(job.MaxHealth);
+		player.SetHealth(job.MaxHealth);
+		player.SetMaxArmor(job.MaxArmor);
+		player.SetArmor(job.MaxArmor);
+		Log.Info($"{player.GetSteamID()} Initialized Job onto the player: {job}.");
 	}
 }

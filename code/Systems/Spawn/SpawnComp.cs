@@ -6,5 +6,5 @@ public class SpawnComp : Component
 	public string name = "1st One";
 	
 	[Property]
-	public Team team { get; set; }
+	public Job job { get; set; }
 }

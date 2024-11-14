@@ -16,11 +16,14 @@ and execute them. If possible you could add a sorting to this similar to how the
 
 */
 
-public class SingleEventHandler : Component, 
+public class SingleEventHandler : GameObjectSystem<SingleEventHandler>, 
 IGameEventHandler<PlayerTookDamage>, 
 IGameEventHandler<PlayerTakeDamage>,
-IGameEventHandler<PlayerChangeTeam>
+IGameEventHandler<PlayerChangeJob>
 {
+
+	public SingleEventHandler(Scene scene) : base(scene) { }
+
 	[Late]
 	public bool OnGameEvent( PlayerTookDamage eventArgs )
 	{
@@ -44,14 +47,14 @@ IGameEventHandler<PlayerChangeTeam>
 	}
 
 	[Late]
-	public bool OnGameEvent( PlayerChangeTeam eventArgs )
+	public bool OnGameEvent( PlayerChangeJob eventArgs )
 	{
-		Player player = eventArgs.player;
-		Team team = eventArgs.team;
+		var player = eventArgs.player;
+		var job = eventArgs.job;
 
-		Log.Info($"{player.GetSteamID()} is attempting to change to team {team} ");
+		Log.Info($"{player.GetSteamID()} is attempting to change to Job {job} ");
 
-		player.SetTeam(team);
+		player.SetJob(job);
 
 		return false;
 	}

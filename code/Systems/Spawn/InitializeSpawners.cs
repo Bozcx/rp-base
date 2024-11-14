@@ -24,11 +24,11 @@ public class InitializeSpawners : Component, ISceneStartup
 				Array.Empty<string>()
 			)
 			{
-				team = spawnPoint.team
+				job = spawnPoint.job
 			};
 
 			SpawnList.Add(spawner);
-			Log.Info($"Initializing Spawner: {spawnPoint.name} for team: {spawnPoint.team}");
+			Log.Info($"Initializing Spawner: {spawnPoint.name} for team: {spawnPoint.job}");
 		}
 	}
 }
