@@ -3,15 +3,13 @@ namespace astral_base.SCPRP;
 
 public partial class Player
 {
-    private TimeUntil _nextUpdateTime = 0f;
-
     protected override void OnFixedUpdate()
     {
         if (!Networking.IsHost) { return; }
 		if (!Input.Pressed( "attack1" ) ){ return;  }
         if (this.Health > 0 ){ return;  }
 
-        this.Respawn(Random.Shared.FromList(Spawners.SpawnList));
+        this.Respawn(Random.Shared.FromList(InitializeSpawners.SpawnList));
     }
 
     private void Respawn( Spawner spawnPoint )
@@ -27,5 +25,15 @@ public partial class Player
 		Transform.ClearInterpolation();
         CharacterController.Velocity = Vector3.Zero;
         CharacterController.IsOnGround = true;
+		Log.Info($"{this.GetSteamID()} has been respawned.");
+	}
+
+    public void SetupSpawn(Player player, Team team)
+	{
+		player.SetMaxHealth(team.MaxHealth);
+		player.SetHealth(team.MaxHealth);
+		player.SetMaxArmor(team.MaxArmor);
+		player.SetArmor(team.MaxArmor);
+		Log.Info($"{player.GetSteamID()} Initialized Job onto the player: {team}.");
 	}
 }

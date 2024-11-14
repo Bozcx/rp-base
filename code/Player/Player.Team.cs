@@ -9,6 +9,8 @@ public partial class Player
 	[Property]
     private Team Team { get; set; }
 
+	[Authority]
+	[Broadcast( NetPermission.HostOnly )]
     public void SetTeam(Team team)
     {
         Log.Info( $"{this} has changed their team from {Team} to: {team}" );

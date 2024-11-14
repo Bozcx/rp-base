@@ -14,7 +14,6 @@ public partial class Player
 		Make sure to always do this for things outside of clientside code as to keep security.
 	*/
 
-	[HostSync]
 	private float ArmorSoak { get; set; } = 100f; // In percentages
 
 	[HostSync]
@@ -37,34 +36,40 @@ public partial class Player
 	[Property]
 	private float Armor { get; set; } = 100;
 
+	[Authority]
 	[Broadcast( NetPermission.HostOnly )]
 	public void SetHealth( float NewHealth )
     {
 		if (NewHealth <= MaxHealth) {
-			MaxHealth = MathF.Max(NewHealth, 0);
+			this.Health = MathF.Max(NewHealth, 0);
 		}
 	}
 
+	[Authority]
 	[Broadcast( NetPermission.HostOnly )]
 	public void SetMaxHealth( float NewHealth )
     {
-		MaxHealth = MathF.Max(NewHealth, 0);
+		this.MaxHealth = MathF.Max(NewHealth, 0);
 	}
 
+	[Authority]
 	[Broadcast( NetPermission.HostOnly )]
 	public void SetArmor( float NewArmor )
     {
 		if (NewArmor <= MaxArmor) {
-			Armor = MathF.Max(NewArmor, 0);
+			this.Armor = MathF.Max(NewArmor, 0);
 		}
 	}
 
-	[Broadcast( NetPermission.HostOnly )]
+	[Authority]
+	[Broadcast( NetPermission.OwnerOnly )]
 	public void SetMaxArmor( float NewArmor )
     {
-		MaxArmor = MathF.Max(NewArmor, 0);
+		this.MaxArmor = MathF.Max(NewArmor, 0);
 	}
 
+	[Authority]
+	[Broadcast( NetPermission.OwnerOnly )]
 	public void TakeDamage( Damage damage )
 	{
 		Scene.Dispatch( new PlayerTakeDamage( this, damage ) );

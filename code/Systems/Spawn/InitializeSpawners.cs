@@ -3,11 +3,12 @@ using Sandbox.Events;
 
 namespace astral_base.SCPRP;
 
-public class Spawners : Component, ISceneStartup
+public class InitializeSpawners : Component, ISceneStartup
 {
 
 	// public Spawners( Scene scene ) : base( scene ) {}
-	public static List<Spawner> SpawnList { get; set; } = new();
+	[HostSync]
+	public static List<Spawner> SpawnList { get; } = new();
 
 	// Static initialization method
 	void ISceneStartup.OnHostInitialize()
