@@ -8,7 +8,18 @@ public sealed partial class Player : Component
 	/// The current character controller for this player.
 	[HostSync]
 	[RequireComponent]
+	[Property]
 	private CharacterController CharacterController { get; set; } // Save this for easy acces to the player.
+
+	[HostSync]
+	[RequireComponent]
+	[Property]
+	public GameObject Body { get; set; } // Save this for easy acces to the player.
+
+	[HostSync]
+	[RequireComponent]
+	[Property]
+	public SkinnedModelRenderer RenderModel { get; set; } // Save this for easy acces to the player.
 
 	[HostSync]
 	[Property]
@@ -35,7 +46,6 @@ public sealed partial class Player : Component
 	[Broadcast]
 	protected override void OnAwake()
     {
-		this.CharacterController = GetComponent<CharacterController>();
 		this.SteamName = Steam.PersonaName;
 		this.SteamID = Steam.SteamId;
 
@@ -44,7 +54,7 @@ public sealed partial class Player : Component
 		this.Team = Teams.Default(); // This is a must. The player should never not have an ID.
 		Teams.SetupSpawn(this, this.Team);
 
-		Log.Info( $"Loaded: {SteamName}'s information. With the SteamID: {SteamID}" );
+		Log.Info( $"Player object for {this.SteamID} has been initialized." );
 		Scene.Dispatch( new PlayerLoadedIn( this ) );
     }
 

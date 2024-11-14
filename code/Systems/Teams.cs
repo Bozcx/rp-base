@@ -36,7 +36,8 @@ public static class Teams
 		player.SetHealth(team.MaxHealth);
 		player.SetMaxArmor(team.MaxArmor);
 		player.SetArmor(team.MaxArmor);
-		Log.Info($"{player.GetSteamID()} has had their spawn initialized.");
+		// player.RenderModel.Model = Game.Random.FromList( team.Models );
+		Log.Info($"{player.GetSteamID()} Initialized Job onto the player: {team}.");
 	}
 	
 	// Get default job when player spawns

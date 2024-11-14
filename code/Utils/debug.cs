@@ -9,6 +9,7 @@ public class Debug: Component, IGameEventHandler<PlayerLoadedIn>, IGameEventHand
 	public bool OnGameEvent( PlayerLoadedIn eventArgs )
 	{
 		// var player = eventArgs.player;
+		// player.RenderModel.Model = Model();
 		// var damage = new Damage(25f, 1, player, false);
 
 		// player.TakeDamage(damage);

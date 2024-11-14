@@ -114,10 +114,26 @@
         "__type": "astral_base.SCPRP.Player",
         "__guid": "e8e33edc-b8c4-4098-b761-db1e777bd0b8",
         "Armor": 100,
+        "Body": {
+          "_type": "gameobject",
+          "go": "e4d137e7-55f3-4637-acf7-e209cf614844"
+        },
+        "CharacterController": {
+          "_type": "component",
+          "component_id": "844b6ec1-b36d-40e6-8559-cf7c0bd10a1a",
+          "go": "3f5378f0-e670-4e15-b23f-6afa99069384",
+          "component_type": "CharacterController"
+        },
         "GodMode": false,
         "Health": 100,
         "MaxArmor": 100,
         "MaxHealth": 100,
+        "RenderModel": {
+          "_type": "component",
+          "component_id": "80271088-0a65-4616-b672-41b768df7960",
+          "go": "e4d137e7-55f3-4637-acf7-e209cf614844",
+          "component_type": "SkinnedModelRenderer"
+        },
         "SteamID": 0,
         "SteamName": ""
       },

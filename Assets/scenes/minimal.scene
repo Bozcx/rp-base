@@ -337,34 +337,13 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.NetworkHelper",
-          "__guid": "3fd4770c-d696-4ac5-bfbe-f1939eba8476",
+          "__type": "astral_base.SCPRP.GameNetworkManager",
+          "__guid": "138ed6d1-05e7-493b-8094-06c7cb04a77b",
+          "IsMultiplayer": true,
           "PlayerPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/player controller.prefab"
-          },
-          "SpawnPoints": [
-            {
-              "_type": "gameobject",
-              "go": "5e13fa3c-3f73-48c4-b26b-4e92d82e0ca7"
-            }
-          ],
-          "StartServer": true
-        }
-      ]
-    },
-    {
-      "__guid": "d7ad4c52-b733-499c-bf5a-9e7e0cfce25c",
-      "Flags": 0,
-      "Name": "SpawnPoints",
-      "Position": "-38.97418,89.31911,69.71033",
-      "Enabled": true,
-      "Children": [
-        {
-          "__guid": "5e13fa3c-3f73-48c4-b26b-4e92d82e0ca7",
-          "Flags": 0,
-          "Name": "1",
-          "Enabled": true
+          }
         }
       ]
     },
@@ -380,8 +359,12 @@
           "__guid": "52230a4f-15c5-4856-9d79-dc587f6f02ab"
         },
         {
-          "__type": "astral_base.SCPRP.EventHandler",
-          "__guid": "0b73a0df-36d3-4aba-82ee-1cdef09404c2"
+          "__type": "astral_base.SCPRP.SingleEventHandler",
+          "__guid": "5f7c400f-1171-498a-803c-36c87e9fe1d1"
+        },
+        {
+          "__type": "astral_base.SCPRP.Spawners",
+          "__guid": "2bc80812-9042-4275-bb34-2a8ca88e7f0e"
         }
       ]
     },
@@ -390,6 +373,21 @@
       "Flags": 0,
       "Name": "GameObject",
       "Enabled": true
+    },
+    {
+      "__guid": "4344e707-0868-403a-9b66-c9c16e1c4aca",
+      "Flags": 0,
+      "Name": "POINT 1",
+      "Position": "133.1476,67.06673,88.51218",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "astral_base.SCPRP.SpawnComp",
+          "__guid": "ac91d977-e564-4e50-bf5a-278fa5f515f0",
+          "name": "1st One",
+          "team": "gameplay/jobs/default.job"
+        }
+      ]
     }
   ],
   "SceneProperties": {
