@@ -13,7 +13,7 @@ IGameEventHandler<PlayerChangeTeam>
 		var player = eventArgs.player;
 		var damage = eventArgs.damage;
 
-		Log.Info($"{player.SteamID} is took {damage.Amount} ammount of damage.");
+		Log.Info($"{player.GetSteamID()} is took {damage.Amount} ammount of damage.");
 		return false;
 	}
 
@@ -22,7 +22,7 @@ IGameEventHandler<PlayerChangeTeam>
 		var player = eventArgs.player;
 		var damage = eventArgs.damage;
 
-		Log.Info($"{player.SteamID} is attempting to take {damage.Amount} ammount of damage.");
+		Log.Info($"{player.GetSteamID()} is attempting to take {damage.Amount} ammount of damage.");
 
 		player.ActualTakeDamage(damage);
 		return false;
@@ -33,7 +33,7 @@ IGameEventHandler<PlayerChangeTeam>
 		Player player = eventArgs.player;
 		Team team = eventArgs.team;
 
-		Log.Info($"{player.SteamID} is attempting to change to team {team} ");
+		Log.Info($"{player.GetSteamID()} is attempting to change to team {team} ");
 
 		player.SetTeam(team);
 

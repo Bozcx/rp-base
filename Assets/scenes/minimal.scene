@@ -384,6 +384,12 @@
           "__guid": "0b73a0df-36d3-4aba-82ee-1cdef09404c2"
         }
       ]
+    },
+    {
+      "__guid": "67f40950-7d32-4fd0-924a-9e2cfa080886",
+      "Flags": 0,
+      "Name": "GameObject",
+      "Enabled": true
     }
   ],
   "SceneProperties": {

@@ -8,10 +8,10 @@ public class Debug: Component, IGameEventHandler<PlayerLoadedIn>, IGameEventHand
     [After<Player>]
 	public bool OnGameEvent( PlayerLoadedIn eventArgs )
 	{
-		var player = eventArgs.player;
-		var damage = new Damage(25f, 1, player, false);
+		// var player = eventArgs.player;
+		// var damage = new Damage(25f, 1, player, false);
 
-		player.TakeDamage(damage);
+		// player.TakeDamage(damage);
 
 		return false;
 	}
@@ -19,8 +19,8 @@ public class Debug: Component, IGameEventHandler<PlayerLoadedIn>, IGameEventHand
     [Before<EventHandler>]
 	public bool OnGameEvent( PlayerTakeDamage eventArgs )
 	{
-		var player = eventArgs.player;
-		var Damage = eventArgs.damage;
+		// var player = eventArgs.player;
+		// var Damage = eventArgs.damage;
 
 		return false;
 	}

@@ -38,31 +38,31 @@ public partial class Player
 	private float Armor { get; set; } = 100;
 
 	[Broadcast( NetPermission.HostOnly )]
-	public void SetHealth( int NewHealth )
+	public void SetHealth( float NewHealth )
     {
 		if (NewHealth <= MaxHealth) {
-			MaxHealth = Math.Max(NewHealth, 0);
+			MaxHealth = MathF.Max(NewHealth, 0);
 		}
 	}
 
 	[Broadcast( NetPermission.HostOnly )]
-	public void SetMaxHealth( int NewHealth )
+	public void SetMaxHealth( float NewHealth )
     {
-		MaxHealth = Math.Max(NewHealth, 0);
+		MaxHealth = MathF.Max(NewHealth, 0);
 	}
 
 	[Broadcast( NetPermission.HostOnly )]
-	public void SetArmor( int NewArmor )
+	public void SetArmor( float NewArmor )
     {
 		if (NewArmor <= MaxArmor) {
-			Armor = Math.Max(NewArmor, 0);
+			Armor = MathF.Max(NewArmor, 0);
 		}
 	}
 
 	[Broadcast( NetPermission.HostOnly )]
-	public void SetMaxArmor( int NewArmor )
+	public void SetMaxArmor( float NewArmor )
     {
-		MaxArmor = Math.Max(NewArmor, 0);
+		MaxArmor = MathF.Max(NewArmor, 0);
 	}
 
 	public void TakeDamage( Damage damage )
@@ -82,10 +82,10 @@ public partial class Player
 		float damageToHP = (1f - (ArmorSoak / 100f)) * DamageAmount;
 
 		if (damage.Forced) { // Force ignores armor.
-			this.Health = Math.Max(this.Health -= DamageAmount, 0);
+			this.Health = MathF.Max(this.Health -= DamageAmount, 0);
 		} else {
-			this.Health = Math.Max(this.Health - damageToHP, 0);
-			this.Armor = Math.Max(this.Armor - damageToArmor, 0);
+			this.Health = MathF.Max(this.Health - damageToHP, 0);
+			this.Armor = MathF.Max(this.Armor - damageToArmor, 0);
 		}
 		
 		Scene.Dispatch( new PlayerTookDamage( this, damage ) );

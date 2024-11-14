@@ -8,15 +8,25 @@ public sealed partial class Player : Component
 	/// The current character controller for this player.
 	[HostSync]
 	[RequireComponent]
-	public CharacterController CharacterController { get; set; } // Save this for easy acces to the player.
+	private CharacterController CharacterController { get; set; } // Save this for easy acces to the player.
 
 	[HostSync]
 	[Property]
-	public ulong SteamID { get; set; };
+	private ulong SteamID { get; set; };
+
+	public ulong GetSteamID()
+	{
+		return this.SteamID;
+	}
 
 	[HostSync]
 	[Property]
-	public string SteamName { get; set; };
+	private string SteamName { get; set; };
+
+	public string GetSteamName()
+	{
+		return this.SteamName;
+	}
 
 	[HostSync]
 	[Property]
@@ -25,11 +35,15 @@ public sealed partial class Player : Component
 	[Broadcast]
 	protected override void OnAwake()
     {
-		CharacterController = GetComponent<CharacterController>();
-		SteamName = Steam.PersonaName;
-		SteamID = Steam.SteamId;
+		this.CharacterController = GetComponent<CharacterController>();
+		this.SteamName = Steam.PersonaName;
+		this.SteamID = Steam.SteamId;
 
-		DisplayName = SteamName; // For now till we add functionality to this.
+		this.DisplayName = SteamName; // For now till we add functionality to this.
+
+		this.Team = Teams.Default(); // This is a must. The player should never not have an ID.
+		Teams.SetupSpawn(this, this.Team);
+
 		Log.Info( $"Loaded: {SteamName}'s information. With the SteamID: {SteamID}" );
 		Scene.Dispatch( new PlayerLoadedIn( this ) );
     }
