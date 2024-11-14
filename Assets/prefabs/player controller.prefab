@@ -17,7 +17,7 @@
         "BodyHeight": 72,
         "BodyMass": 500,
         "BodyRadius": 16,
-        "CameraOffset": "75,12,0",
+        "CameraOffset": "75,25,0",
         "DuckedHeight": 36,
         "DuckedSpeed": 70,
         "EnableFootstepSounds": true,

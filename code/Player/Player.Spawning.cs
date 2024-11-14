@@ -28,7 +28,8 @@ public partial class Player
         CharacterController.IsOnGround = true;
 		Log.Info($"{this.GetSteamID()} has been respawned.");
 	}
-
+	
+	[Authority]
     public void SetupSpawn(Player player, Job job)
 	{
 		player.SetMaxHealth(job.MaxHealth);
