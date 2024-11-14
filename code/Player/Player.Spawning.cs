@@ -14,6 +14,7 @@ public partial class Player
 
     private void Respawn( Spawner spawnPoint )
 	{
+		SetupSpawn(this, this.GetJob());
 		Teleport( spawnPoint.Position, spawnPoint.Rotation );
 	}
 

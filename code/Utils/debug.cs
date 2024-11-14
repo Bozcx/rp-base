@@ -3,8 +3,12 @@ using Sandbox.Events;
 
 namespace astral_base.SCPRP;
 
-public class Debug: Component, IGameEventHandler<PlayerLoadedIn>, IGameEventHandler<PlayerTakeDamage>
+public class Debug: GameObjectSystem<Debug>, 
+IGameEventHandler<PlayerLoadedIn>, 
+IGameEventHandler<PlayerTakeDamage>
 {
+	public Debug( Scene scene ) : base( scene ) {}
+
     [After<Player>]
 	public bool OnGameEvent( PlayerLoadedIn eventArgs )
 	{

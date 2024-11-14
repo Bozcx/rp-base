@@ -3,17 +3,18 @@ using Sandbox.Events;
 
 namespace astral_base.SCPRP;
 
-public class InitializeJobs : Component, ISceneStartup
+public sealed class InitializeJobs : GameObjectSystem<InitializeJobs>, ISceneStartup
 {
+	public InitializeJobs( Scene scene ) : base( scene ) {}
+
 	[HostSync]
 	public static Dictionary<string, JobGroup> JobGroups { get; } = new();
 	[HostSync]
 	public static Dictionary<string, Job> Jobs { get; } = new();
 
-	[Broadcast]
 	void ISceneStartup.OnHostInitialize()
 	{
-		Log.Info( "Loading jobs..." );
+		Log.Info( "Loading job groups" );
 
 		Jobs.Clear();
 		JobGroups.Clear();
@@ -25,7 +26,7 @@ public class InitializeJobs : Component, ISceneStartup
 			JobGroups[group.Name] = group;
 		}
 
-		Log.Info( "Loading jobs..." );
+		Log.Info( "Loading jobs" );
 		
 		// Get all Job resources
 		foreach ( var job in ResourceLibrary.GetAll<Job>() ) // Think about merging jobs into jobgroups. Jobgroups[Jobgroup][Job]

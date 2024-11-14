@@ -3,8 +3,9 @@ using Sandbox.Events;
 
 namespace astral_base.SCPRP;
 
-public class InitializeSpawners : Component, ISceneStartup
+public sealed class InitializeSpawners : GameObjectSystem<InitializeSpawners>, ISceneStartup
 {
+	public InitializeSpawners( Scene scene ) : base( scene ) {}
 
 	// public Spawners( Scene scene ) : base( scene ) {}
 	[HostSync]
@@ -13,7 +14,7 @@ public class InitializeSpawners : Component, ISceneStartup
 	// Static initialization method
 	void ISceneStartup.OnHostInitialize()
 	{
-		Log.Info("Loading spawn points...");
+		Log.Info("Loading spawn points");
 
 		SpawnList.Clear();
 

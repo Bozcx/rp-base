@@ -24,8 +24,8 @@
         "EnablePressing": true,
         "EyeDistanceFromTop": 8,
         "FootstepMixer": {
-          "Name": "unknown",
-          "Id": "00000000-0000-0000-0000-000000000000"
+          "Name": "game",
+          "Id": "ff1c7859-4e4d-4a3a-b38c-04930e2b380a"
         },
         "FootstepVolume": 1,
         "HideBodyInFirstPerson": true,
@@ -40,7 +40,7 @@
         "RotateWithGround": true,
         "RotationAngleLimit": 45,
         "RotationSpeed": 1,
-        "RunSpeed": 320,
+        "RunSpeed": 250,
         "ShowColliderComponents": false,
         "ShowRigidbodyComponent": false,
         "ThirdPerson": true,
@@ -49,7 +49,7 @@
         "UseButton": "use",
         "UseCameraControls": true,
         "UseInputControls": true,
-        "WalkSpeed": 110
+        "WalkSpeed": 80
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -74,8 +74,8 @@
         "__guid": "0d878554-37ce-4183-8c76-4857e519fbdc",
         "GroundAngle": 45,
         "Priority": 0,
-        "StepDownHeight": 18,
-        "StepUpHeight": 18
+        "StepDownHeight": 30,
+        "StepUpHeight": 30
       },
       {
         "__type": "Sandbox.CapsuleCollider",
@@ -160,10 +160,10 @@
           {
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "80271088-0a65-4616-b672-41b768df7960",
-            "BodyGroups": 341,
+            "BodyGroups": 5,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
-            "Model": "models/citizen/citizen.vmdl",
+            "Model": "models/player/stalker_dolg/stalker_dolg.vmdl",
             "Morphs": {},
             "Parameters": {
               "bools": {},
@@ -215,6 +215,8 @@
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
-  "__references": [],
+  "__references": [
+    "sboxmp.stalker_dolg#58092"
+  ],
   "__version": 1
 }
