@@ -42,7 +42,7 @@ public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>,
 
 		var playerPrefab = PlayerPrefab.Clone();
 		playerPrefab.BreakFromPrefab();
-		playerPrefab.Name = $"({channel.SteamId})";
+		playerPrefab.Name = $"{channel.SteamId}";
 		playerPrefab.Network.SetOrphanedMode( NetworkOrphaned.Destroy );
 
 		var player = playerPrefab.Components.Get<Player>();

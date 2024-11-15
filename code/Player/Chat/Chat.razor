@@ -1,0 +1,30 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace astral_base.SCPRP
+
+<root>
+	@if ( ChatToggle )
+	{
+		<div class="clickaway" @onclick=@HideInput></div>
+	}
+	<div class="chat-container">
+		<div class="messages active">
+			@foreach ( var message in Messages )
+			{
+				<div class="message">
+					<div class="avatar">
+						<img src="avatar://@message.Author"/>
+					</div>
+					<div class="content">
+						<div class="name">@message.DisplayName</div>
+						<div class="text">@message.Text</div>
+					</div>
+				</div>
+			}
+		</div>
+		<div class="input-container @( ChatToggle ? "active" : "" )">
+			<TextEntry @ref=" InputBox" class="input" placeholder="Type a message..." Value:bind=@MessageText onsubmit=@SendMessage/>
+		</div>
+	</div>
+</root>

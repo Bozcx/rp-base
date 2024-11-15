@@ -6,11 +6,12 @@
 
 // public partial class MainHUD
 // {
-// 	[Property]
-//     public Player LocalPlayer { get; set; }
-    
+//     public Player ply { get; set; }
+
 //     protected override int BuildHash()
 // 	{
-// 		return HashCode.Combine( LocalPlayer );
+//         ply = Player.Local;
+
+// 		return HashCode.Combine( ply );
 // 	}
 // }

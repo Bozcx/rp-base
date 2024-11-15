@@ -19,7 +19,8 @@ and execute them. If possible you could add a sorting to this similar to how the
 public class SingleEventHandler : GameObjectSystem<SingleEventHandler>, 
 IGameEventHandler<PlayerTookDamage>, 
 IGameEventHandler<PlayerTakeDamage>,
-IGameEventHandler<PlayerChangeJob>
+IGameEventHandler<PlayerChangeJob>,
+IGameEventHandler<PlayerSendMessage>
 {
 
 	public SingleEventHandler(Scene scene) : base(scene) { }
@@ -55,6 +56,23 @@ IGameEventHandler<PlayerChangeJob>
 		Log.Info($"{player.GetSteamID()} is attempting to change to Job {job} ");
 
 		player.SetJob(job);
+
+		return false;
+	}
+
+	[Late]
+	public bool OnGameEvent( PlayerSendMessage eventArgs )
+	{
+		var player = eventArgs.player;
+		var message = eventArgs.message;
+
+		Log.Info( $"> {message.DisplayName} : {message.Text}" );
+
+		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300)) {
+			return false;
+		}
+
+		Chat.GetChat().Messages.Add( message );
 
 		return false;
 	}

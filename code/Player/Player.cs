@@ -5,9 +5,27 @@ namespace astral_base.SCPRP;
 
 public sealed partial class Player : Component
 {
+
+	private static Player _local;
+
+	public static Player Local // Method to get the Local Client! Get the local client using Player.Local
+	{
+		get
+		{
+			if ( _local.IsValid() ) return _local;
+			_local = Game.ActiveScene.GetAllComponents<Player>().FirstOrDefault( x => !x.IsProxy );
+			return _local;
+		}
+	}
+
 	[HostSync]
 	[Property]
-	private CharacterController CharacterController { get; set; }
+	public CharacterController CharacterController { get; set; }
+
+	public CharacterController GetCharacterController()
+	{
+		return this.CharacterController;
+	}
 
 	[HostSync]
 	[Property]

@@ -183,7 +183,6 @@
         {
           "__type": "astral_base.SCPRP.SpawnComp",
           "__guid": "873d50cd-46ae-4d77-8ecf-ded2a3ea774a",
-          "name": "1st One",
           "job": "gameplay/jobs/default.job"
         }
       ]
