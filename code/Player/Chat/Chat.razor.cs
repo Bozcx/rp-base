@@ -6,6 +6,7 @@ namespace astral_base.SCPRP;
 
 public partial class Chat
 {
+	[HostSync]
 	public static Chat Instance { get; private set; }
 	public List<ChatMessage> Messages { get; set; } = new();
 	private bool ShouldShowMessages => Messages.Count > 0 || ChatToggle;
@@ -13,11 +14,12 @@ public partial class Chat
 	private string MessageText { get; set; } = "";
 	private TextEntry InputBox;
 
-
 	protected override int BuildHash() => System.HashCode.Combine( Messages, ChatToggle, MessageText );
+	[Authority]
 	protected override void OnAwake() { Instance = this; }
+	[Authority]
 	protected override void OnDestroy() { Instance = null; }
-
+	
 	public static Chat GetChat() { return Instance; }
 
 	[Authority]
@@ -57,34 +59,40 @@ public partial class Chat
 		// }
 	}
 
-
 	[Authority]
 	private void SendMessage()
 	{
         ChatToggle = false;
         StateHasChanged();
 
+		var sender = Players.GetPlayer(Rpc.Caller.Id);
+
+		if(!sender.IsValid()) {
+			return;
+		}
+
 		if ( string.IsNullOrWhiteSpace( MessageText ) ) { return;}
-        AddMessage( MessageText, Player.Local );
+		var msg = new ChatMessage()
+		{
+			Text = MessageText,
+			Author = sender.GetSteamID(),
+            DisplayName = sender.DisplayName,
+			Time = DateTime.Now,
+			IsActive = true
+		};
+		Scene.Dispatch( new PlayerSendMessage( sender, msg ) );
         MessageText = "";
 	}
 
 	[Broadcast]
-	public void AddMessage( string message, Player player)
+	public void AddMessage( ChatMessage message, Player player)
 	{
-		if ( Rpc.Caller.IsHost ) return;
+		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300) && !(Player.Local == player)) {
+			return;
+		}
 
-		var msg = new ChatMessage()
-		{
-			Text = message,
-			Author = player.GetSteamID(),
-            DisplayName = player.DisplayName,
-			Time = DateTime.Now,
-			IsActive = true
-		};
+		this.Messages.Add( message );
 
-		Scene.Dispatch( new PlayerSendMessage( player, msg ) );
-        
 		StateHasChanged();
 	}
 }

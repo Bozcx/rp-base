@@ -186,6 +186,28 @@
           "job": "gameplay/jobs/default.job"
         }
       ]
+    },
+    {
+      "__guid": "eedab419-1551-45a2-8288-c1786347e518",
+      "Flags": 0,
+      "Name": "Screen",
+      "Position": "-50.33047,154.1132,250.105",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "31e59570-7f28-4664-8d38-0d0ede37b15d",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "ZIndex": 100
+        },
+        {
+          "__type": "astral_base.SCPRP.Chat",
+          "__guid": "fc8fe354-5c7d-4939-b222-ad8e4e1e6f07"
+        }
+      ]
     }
   ],
   "SceneProperties": {

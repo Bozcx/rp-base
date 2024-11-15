@@ -68,11 +68,9 @@ IGameEventHandler<PlayerSendMessage>
 
 		Log.Info( $"> {message.DisplayName} : {message.Text}" );
 
-		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300) && !(Player.Local == player)) {
-			return false;
-		}
+		Log.Info( $"> {player} : {Player.Local}" );
 
-		Chat.GetChat().Messages.Add( message );
+		Chat.GetChat().AddMessage(message, player);
 
 		return false;
 	}

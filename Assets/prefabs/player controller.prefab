@@ -197,10 +197,6 @@
             "Scale": 1,
             "ScaleStrategy": "ConsistentHeight",
             "ZIndex": 100
-          },
-          {
-            "__type": "astral_base.SCPRP.Chat",
-            "__guid": "3d267912-dbd0-47c1-b8ea-c0dc6247462b"
           }
         ]
       }

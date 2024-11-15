@@ -10,4 +10,15 @@ public static class Players
 	{
 		return Game.ActiveScene.GetAllComponents<Player>();
 	}
+
+	public static Player GetPlayer(Guid id)
+	{
+		foreach (var player in Game.ActiveScene.GetAllComponents<Player>())
+		{
+			if (player.NetworkId == id) {
+				return player;
+			}
+		}
+		return null;
+	}
 }
