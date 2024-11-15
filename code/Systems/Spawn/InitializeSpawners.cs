@@ -21,7 +21,7 @@ public sealed class InitializeSpawners : GameObjectSystem<InitializeSpawners>, I
 		foreach (var spawnPoint in Scene.GetAllComponents<SpawnComp>())
 		{
 			var spawner = new Spawner(
-				new Transform(spawnPoint.Transform.Position, spawnPoint.Transform.Rotation),
+				new Transform(spawnPoint.WorldPosition, spawnPoint.WorldRotation),
 				Array.Empty<string>()
 			)
 			{

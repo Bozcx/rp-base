@@ -4,6 +4,7 @@ using Sandbox.Network;
 
 namespace astral_base.SCPRP;
 
+// Few calls in this class need to re-done due to Obsolete methods.
 public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>, Component.INetworkListener
 {
 	[Property]
