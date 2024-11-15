@@ -68,7 +68,7 @@ IGameEventHandler<PlayerSendMessage>
 
 		Log.Info( $"> {message.DisplayName} : {message.Text}" );
 
-		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300)) {
+		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300) && !(Player.Local == player)) {
 			return false;
 		}
 

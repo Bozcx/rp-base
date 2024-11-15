@@ -20,11 +20,13 @@ public partial class Chat
 
 	public static Chat GetChat() { return Instance; }
 
+	[Authority]
     private void HideInput() {
 		ChatToggle = false;
 		StateHasChanged();
 	}
 
+	[Authority]
 	protected override void OnFixedUpdate()
 	{
 		if ( Input.EscapePressed ) {
@@ -56,29 +58,32 @@ public partial class Chat
 	}
 
 
+	[Authority]
 	private void SendMessage()
 	{
         ChatToggle = false;
         StateHasChanged();
 
 		if ( string.IsNullOrWhiteSpace( MessageText ) ) { return;}
-        AddMessage( MessageText );
+        AddMessage( MessageText, Player.Local );
         MessageText = "";
 	}
 
-	[Authority]
-	public void AddMessage( string message)
+	[Broadcast]
+	public void AddMessage( string message, Player player)
 	{
+		if ( Rpc.Caller.IsHost ) return;
+
 		var msg = new ChatMessage()
 		{
 			Text = message,
-			Author = Player.Local.GetSteamID(),
-            DisplayName = Player.Local.DisplayName,
+			Author = player.GetSteamID(),
+            DisplayName = player.DisplayName,
 			Time = DateTime.Now,
 			IsActive = true
 		};
 
-		Scene.Dispatch( new PlayerSendMessage( Player.Local, msg ) );
+		Scene.Dispatch( new PlayerSendMessage( player, msg ) );
         
 		StateHasChanged();
 	}
