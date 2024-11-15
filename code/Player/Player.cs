@@ -12,7 +12,7 @@ public sealed partial class Player : Component
 	{
 		get
 		{
-			// if ( _local.IsValid() ) return _local;
+			if ( _local.IsValid() ) return _local;
 			_local = Game.ActiveScene.GetAllComponents<Player>().FirstOrDefault( x => !x.IsProxy );
 			Log.Info( $"{_local}");
 			return _local;
