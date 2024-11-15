@@ -68,8 +68,6 @@ IGameEventHandler<PlayerSendMessage>
 
 		Log.Info( $"> {message.DisplayName} : {message.Text}" );
 
-		Log.Info( $"> {player} : {Player.Local}" );
-
 		Chat.GetChat().AddMessage(message, player);
 
 		return false;

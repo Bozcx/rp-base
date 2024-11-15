@@ -1,13 +1,12 @@
 Chat {
-    .chat-container {
 
+    .chat-container {
         position: absolute;
-        bottom: 0px;
-        left: 50px;
-        width: 700px;
+        bottom: -60px;
+        left: 10px;
+        width: 600px;
         flex-direction: column;
         gap: 20px;
-
     }
 
     .messages {
