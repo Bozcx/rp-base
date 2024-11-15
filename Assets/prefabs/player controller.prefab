@@ -17,15 +17,15 @@
         "BodyHeight": 72,
         "BodyMass": 500,
         "BodyRadius": 16,
-        "CameraOffset": "75,25,0",
+        "CameraOffset": "75,12,0",
         "DuckedHeight": 36,
         "DuckedSpeed": 70,
         "EnableFootstepSounds": true,
         "EnablePressing": true,
         "EyeDistanceFromTop": 8,
         "FootstepMixer": {
-          "Name": "game",
-          "Id": "ff1c7859-4e4d-4a3a-b38c-04930e2b380a"
+          "Name": "unknown",
+          "Id": "00000000-0000-0000-0000-000000000000"
         },
         "FootstepVolume": 1,
         "HideBodyInFirstPerson": true,
@@ -40,7 +40,7 @@
         "RotateWithGround": true,
         "RotationAngleLimit": 45,
         "RotationSpeed": 1,
-        "RunSpeed": 250,
+        "RunSpeed": 320,
         "ShowColliderComponents": false,
         "ShowRigidbodyComponent": false,
         "ThirdPerson": true,
@@ -49,7 +49,7 @@
         "UseButton": "use",
         "UseCameraControls": true,
         "UseInputControls": true,
-        "WalkSpeed": 80
+        "WalkSpeed": 110
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -74,8 +74,8 @@
         "__guid": "0d878554-37ce-4183-8c76-4857e519fbdc",
         "GroundAngle": 45,
         "Priority": 0,
-        "StepDownHeight": 30,
-        "StepUpHeight": 30
+        "StepDownHeight": 15,
+        "StepUpHeight": 15
       },
       {
         "__type": "Sandbox.CapsuleCollider",
@@ -114,34 +114,17 @@
         "__type": "astral_base.SCPRP.Player",
         "__guid": "e8e33edc-b8c4-4098-b761-db1e777bd0b8",
         "Armor": 100,
-        "Body": {
-          "_type": "gameobject",
-          "go": "e4d137e7-55f3-4637-acf7-e209cf614844"
-        },
-        "CharacterController": {
-          "_type": "component",
-          "component_id": "844b6ec1-b36d-40e6-8559-cf7c0bd10a1a",
-          "go": "3f5378f0-e670-4e15-b23f-6afa99069384",
-          "component_type": "CharacterController"
-        },
         "GodMode": false,
         "Health": 100,
         "MaxArmor": 100,
         "MaxHealth": 100,
-        "RenderModel": {
-          "_type": "component",
-          "component_id": "80271088-0a65-4616-b672-41b768df7960",
-          "go": "e4d137e7-55f3-4637-acf7-e209cf614844",
-          "component_type": "SkinnedModelRenderer"
-        },
-        "SteamID": 0,
-        "SteamName": ""
+        "SteamID": 0
       },
       {
         "__type": "Sandbox.CharacterController",
         "__guid": "844b6ec1-b36d-40e6-8559-cf7c0bd10a1a",
         "Acceleration": 10,
-        "Bounciness": 0.3,
+        "Bounciness": 0,
         "GroundAngle": 45,
         "Height": 64,
         "IgnoreLayers": "",
@@ -181,6 +164,33 @@
             "RenderType": "On",
             "Tint": "1,1,1,1",
             "UseAnimGraph": true
+          }
+        ]
+      },
+      {
+        "__guid": "2fc65c1f-b61b-4e6b-a596-f94e878d4642",
+        "Flags": 0,
+        "Name": "hud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "e8b094db-49a4-4a22-a885-7a72e7ff6a4a",
+            "AutoScreenScale": true,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "ZIndex": 100
+          },
+          {
+            "__type": "astral_base.SCPRP.MainHUD",
+            "__guid": "b50341f9-08df-4bdd-a0f0-bfe566854189",
+            "LocalPlayer": {
+              "_type": "component",
+              "component_id": "e8e33edc-b8c4-4098-b761-db1e777bd0b8",
+              "go": "3f5378f0-e670-4e15-b23f-6afa99069384",
+              "component_type": "Player"
+            }
           }
         ]
       }

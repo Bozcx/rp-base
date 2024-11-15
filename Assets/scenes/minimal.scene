@@ -146,34 +146,9 @@
       ]
     },
     {
-      "__guid": "25dc19f9-973e-4071-ad11-ff5fb45e9c44",
-      "Flags": 0,
-      "Name": "PlayerSpawner",
-      "Position": "-38.97418,89.31911,532.7851",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "astral_base.SCPRP.GameNetworkManager",
-          "__guid": "138ed6d1-05e7-493b-8094-06c7cb04a77b",
-          "IsMultiplayer": true,
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/player controller.prefab"
-          }
-        },
-        {
-          "__type": "astral_base.SCPRP.SpawnComp",
-          "__guid": "9c43a782-b9e4-43e7-8a52-18f536006d68",
-          "name": "1st One",
-          "job": "gameplay/jobs/default.job"
-        }
-      ]
-    },
-    {
       "__guid": "506ff49a-10e4-4d6d-b6de-553fd7da335e",
       "Flags": 0,
       "Name": "MapHandler",
-      "Position": "165.9049,116.9487,-59.67736",
       "Enabled": true,
       "Components": [
         {
@@ -181,14 +156,37 @@
           "__guid": "e052c563-82ab-405f-a07a-94ce2205e5dd",
           "__version": 1,
           "EnableCollision": true,
-          "MapName": "facepunch.construct23",
+          "MapName": "quack.reflectivity",
           "NoOrigin": false,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": true
+        },
+        {
+          "__type": "astral_base.SCPRP.GameNetworkManager",
+          "__guid": "402b22ad-8313-465c-b3a4-21ad181dfc12",
+          "IsMultiplayer": true,
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/player controller.prefab"
+          }
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "bcba075c-5c63-4a4b-99ce-1c4a40b690fc",
+      "Flags": 0,
+      "Name": "spawn",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "astral_base.SCPRP.SpawnComp",
+          "__guid": "873d50cd-46ae-4d77-8ecf-ded2a3ea774a",
+          "name": "1st One",
+          "job": "gameplay/jobs/default.job"
+        }
+      ]
     }
   ],
   "SceneProperties": {

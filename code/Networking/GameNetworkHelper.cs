@@ -16,12 +16,14 @@ public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>,
 	{
 		if ( !IsMultiplayer )
 		{
+			Log.Info( $"Starting a local server." );
 			OnActive( Connection.Local );
 			return;
 		}
 
 		if ( !Networking.IsActive )
 		{
+			Log.Info( $"Starting a new lobby server." );
 			Networking.CreateLobby();
 		}
 	}

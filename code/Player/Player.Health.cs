@@ -36,6 +36,27 @@ public partial class Player
 	[Property]
 	private float Armor { get; set; } = 100f;
 
+	public float GetHealth() // Weird networking error when applying sum to this.
+    {
+		return this.Health;
+	}
+
+	public float GetMaxHealth() // Weird networking error when applying sum to this.
+    {
+		return this.MaxHealth;
+	}
+
+	public float GetArmor() // Weird networking error when applying sum to this.
+    {
+		return this.Armor;
+	}
+
+	public float GetMaxArmor() // Weird networking error when applying sum to this.
+    {
+		return this.MaxArmor;
+	}
+
+
 	[Authority]
 	[Broadcast( NetPermission.HostOnly )]
 	public void SetHealth( float NewHealth )

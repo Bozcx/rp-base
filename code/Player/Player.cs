@@ -55,14 +55,14 @@ public sealed partial class Player : Component
     }
 
 	[Authority] // Aka only for that player.
-	protected override void OnPreRender()
-	{
-		if ( Scene.Camera is null )
-			return;
+	protected override void OnUpdate()
+		{
+			if ( Scene.Camera == null ) { return; };
+			var hud = Scene.Camera.Hud;
 
-		var hud = Scene.Camera.Hud;
-
-		// hud.DrawText( new TextRendering.Scope( $"{Health}", Color.Red, 32 ), Screen.Width * 0.5f );
-		// hud.DrawText( new TextRendering.Scope( $"{Armor}", Color.Red, 32 ), Screen.Width * 0.3f );
-	}
+			hud.DrawRect( new Rect( Screen.Width * 0.425f, 25, 200, 10 ), Color.Gray, new Vector4( 5, 5, 5, 5 ) );
+			hud.DrawRect( new Rect( Screen.Width * 0.424f, 25, ((this.GetHealth() / this.GetMaxHealth()) * 202), 10 ), Color.Red, new Vector4( 5, 5, 5, 5 ) );
+			hud.DrawRect( new Rect( Screen.Width * 0.425f, 40, 200, 10 ), Color.Gray, new Vector4( 5, 5, 5, 5 ) );
+			hud.DrawRect( new Rect( Screen.Width * 0.424f, 40, ((this.GetArmor() / this.GetMaxArmor()) * 202), 10 ), Color.Blue, new Vector4( 5, 5, 5, 5 ) );
+		}
 }

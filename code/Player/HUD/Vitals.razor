@@ -1,0 +1,13 @@
+@* @using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@namespace astral_base.SCPRP
+
+
+@if (LocalPlayer == null){ return; }
+
+<root style="color: white;">
+	<p>Health: @LocalPlayer.GetHealth()</p>
+	<p>|</p>
+	<p>Armor: @LocalPlayer.GetArmor()</p>
+</root> *@
