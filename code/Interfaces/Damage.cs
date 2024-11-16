@@ -1,19 +1,9 @@
-namespace astral_base.SCPRP
+namespace astral_base.SCPRP;
+
+public record Damage
 {
-    public class Damage
-    {
-        public float Amount { get; set; }
-        public int Type { get; set; }
-        public Player Attacker  { get; set; }
-
-        public bool Forced  { get; set; }
-
-        public Damage(float amount, int type, Player attacker, bool forced)
-        {
-            Amount = amount;
-            Type = type;
-            Attacker = attacker;
-            Forced = forced;
-        }
-    }
+    public float Amount { get; init; }
+    public int Type { get; init; }
+    public Player Attacker { get; init; }
+    public bool Forced { get; init; }
 }

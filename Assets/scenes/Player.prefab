@@ -109,18 +109,6 @@
         "__guid": "472750b2-4d76-4a54-b7db-793628af70d0",
         "ClimbableTags": "ladder",
         "Priority": 5
-      },
-      {
-        "__type": "Sandbox.NetworkHelper",
-        "__guid": "f5594199-daa3-4283-a404-7b25d30cc7f8",
-        "PlayerPrefab": {
-          "_type": "gameobject",
-          "go": "a7ae8cfb-4784-4367-9f4a-cf15ae3a82ae"
-        },
-        "SpawnPoints": [
-          null
-        ],
-        "StartServer": true
       }
     ],
     "Children": [
@@ -133,10 +121,10 @@
           {
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "6cc52e83-b2be-43a8-8043-821489a8af08",
-            "BodyGroups": 341,
+            "BodyGroups": 5,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
-            "Model": "models/citizen/citizen.vmdl",
+            "Model": "models/player/stalker_dolg/stalker_dolg.vmdl",
             "Morphs": {},
             "Parameters": {
               "bools": {},
@@ -188,6 +176,9 @@
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
-  "__references": [],
+  "__references": [
+    "sboxmp.stalker_dolg#58092"
+  ],
+  "HasUnsavedChanges": false,
   "__version": 1
 }
