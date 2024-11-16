@@ -13,6 +13,9 @@
 			@foreach ( var message in Messages )
 			{
 				<div class="message">
+					@if (message.IsOOC) {
+						<div class="text">(OOC)</div>
+					}
 					<div class="avatar">
 						<img src="avatar://@message.Author"/>
 					</div>

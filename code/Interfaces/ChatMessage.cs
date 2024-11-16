@@ -6,6 +6,6 @@ public record ChatMessage
     public ulong Author { get; init; }
     public string DisplayName { get; init; }
     public DateTime Time { get; init; }
-    public bool IsOOC { get; set; }
+    public bool IsOOC { get; set; } = false;
     public bool IsActive { get; set; }
 }

@@ -74,11 +74,12 @@ public partial class Chat
 		if ( string.IsNullOrWhiteSpace( MessageText ) ) { return;}
 		var msg = new ChatMessage()
 		{
-			Text = MessageText,
+			Text = MessageText.Substring(2).Trim(),
 			Author = sender.GetSteamID(),
             DisplayName = sender.DisplayName,
 			Time = DateTime.Now,
-			IsActive = true
+			IsActive = true,
+			IsOOC = MessageText.StartsWith("//")
 		};
 		Scene.Dispatch( new PlayerSendMessage( sender, msg ) );
         MessageText = "";
@@ -87,7 +88,7 @@ public partial class Chat
 	[Broadcast]
 	public void AddMessage( ChatMessage message, Player player)
 	{
-		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300) && !(Player.Local == player)) {
+		if(!(Player.Local.GetCharacterController().WorldPosition.Distance( player.GetCharacterController().WorldPosition ) < 300) && !(Player.Local == player) && !message.IsOOC) {
 			return;
 		}
 
