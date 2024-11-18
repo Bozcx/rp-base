@@ -1,4 +1,4 @@
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 public abstract class SingletonComponent<T> : Component, IHotloadManaged
 	where T : SingletonComponent<T>
 {

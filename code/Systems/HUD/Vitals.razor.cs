@@ -2,7 +2,7 @@
 // using Sandbox;
 // using Sandbox.UI;
 
-// namespace astral_base.SCPRP;
+// namespace astral_base.RPBASE;
 
 // public partial class Vitals
 // {

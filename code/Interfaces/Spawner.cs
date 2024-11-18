@@ -1,4 +1,4 @@
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 public record struct Spawner( Transform Transform, IReadOnlyList<string> Tags )
 {

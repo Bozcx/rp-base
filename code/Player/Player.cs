@@ -1,7 +1,7 @@
 using Sandbox.Utility;
 using Sandbox.Events;
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 public sealed partial class Player : Component
 {

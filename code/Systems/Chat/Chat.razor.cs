@@ -2,7 +2,7 @@ using System;
 using Sandbox.UI;
 using Sandbox.Events;
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 public partial class Chat
 {

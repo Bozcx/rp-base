@@ -1,5 +1,5 @@
 using Sandbox.Events;
-using astral_base.SCPRP;
+using astral_base.RPBASE;
 
 public record PlayerLoadedIn(Player player) : IGameEvent;
 

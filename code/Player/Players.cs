@@ -1,7 +1,7 @@
-using astral_base.SCPRP;
+using astral_base.RPBASE;
 using Sandbox.Events;
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 public static class Players
 {

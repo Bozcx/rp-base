@@ -1,7 +1,7 @@
 using Sandbox.Utility;
 using Sandbox.Events;
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 public sealed class InitializeItems : GameObjectSystem<InitializeItems>, ISceneStartup
 {
@@ -15,7 +15,7 @@ public sealed class InitializeItems : GameObjectSystem<InitializeItems>, ISceneS
 		foreach ( var item in ResourceLibrary.GetAll<Item>() )
 		{	
 			Log.Info( $"Loading item: {item.Name} With Class: {item.Class}" );
-			Type? itemclass = Type.GetType("astral_base.SCPRP." + item.Class); // get the class based off of the string.
+			Type? itemclass = Type.GetType("astral_base.RPBASE." + item.Class); // get the class based off of the string.
 			if (itemclass == null) {
 				Log.Info($"Class '{item.Class}' not found.");
 				continue;

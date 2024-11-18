@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 [GameResource( "Job Group Definition", "group", "" )]
 public class JobGroup : GameResource

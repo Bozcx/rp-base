@@ -163,7 +163,7 @@
           "UseMapFromLaunch": true
         },
         {
-          "__type": "astral_base.SCPRP.GameNetworkManager",
+          "__type": "astral_base.RPBASE.GameNetworkManager",
           "__guid": "402b22ad-8313-465c-b3a4-21ad181dfc12",
           "IsMultiplayer": true,
           "PlayerPrefab": {
@@ -181,7 +181,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "astral_base.SCPRP.SpawnComp",
+          "__type": "astral_base.RPBASE.SpawnComp",
           "__guid": "873d50cd-46ae-4d77-8ecf-ded2a3ea774a",
           "job": "gameplay/jobs/default.job"
         }
@@ -204,7 +204,7 @@
           "ZIndex": 100
         },
         {
-          "__type": "astral_base.SCPRP.Chat",
+          "__type": "astral_base.RPBASE.Chat",
           "__guid": "fc8fe354-5c7d-4939-b222-ad8e4e1e6f07"
         }
       ]

@@ -111,7 +111,7 @@
         "Priority": 5
       },
       {
-        "__type": "astral_base.SCPRP.Player",
+        "__type": "astral_base.RPBASE.Player",
         "__guid": "e8e33edc-b8c4-4098-b761-db1e777bd0b8",
         "Armor": 100,
         "Body": {

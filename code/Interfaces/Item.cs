@@ -1,5 +1,5 @@
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 [GameResource( "Item Base", "items", "", Category = "Items" )]
 public class Item : GameResource

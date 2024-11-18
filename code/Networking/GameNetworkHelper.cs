@@ -2,7 +2,7 @@ using Sandbox.Diagnostics;
 using Sandbox.Events;
 using Sandbox.Network;
 
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 // Few calls in this class need to re-done due to Obsolete methods.
 public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>, Component.INetworkListener

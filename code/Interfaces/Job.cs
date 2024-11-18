@@ -1,4 +1,4 @@
-namespace astral_base.SCPRP;
+namespace astral_base.RPBASE;
 
 [GameResource( "Job Definition", "job", "", Category = "Roleplay" )]
 public class Job : GameResource
