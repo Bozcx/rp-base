@@ -1,5 +1,4 @@
-# RP Base
-## A Roleplay base for S&BOX
+# RP Base - A Roleplay base for S&BOX
 ### Main Developer: Astral
 ### Contributors: Bozy
 
