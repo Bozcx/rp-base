@@ -1,10 +1,17 @@
+
 namespace astral_base.SCPRP;
 
-[GameResource( "Item Definition", "item", "" )]
+[GameResource( "Item Base", "items", "", Category = "Items" )]
 public class Item : GameResource
 {
-	public string Name { get; set; } = null!;
-	public string Description { get; set; } = null!;
+	public string Name { get; set; }
+	public string Description { get; set; }
 
-	// For now don't add weapons etc. Wait till a proper base gets released & possibly use that as a base.
+	[ImageAssetPath]
+	public string Icon { get; set; }
+	public string Class { get; set; }
+
+	public virtual void Deploy() {}
+	public virtual void UnDeploy() {}
+	public virtual void FirePrimary() {}
 }

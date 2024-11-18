@@ -56,7 +56,7 @@ public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>,
 	public void OnActive( Connection channel )
 	{
 		Log.Info( $"Player '{channel.DisplayName}' is beginning to initialize." );
-
+		channel.CanSpawnObjects = false; // Include this into the permission system. This is to disallow prop spawning etc. Honestly just do this properly, keep it like this.
 		var player = CreatePlayer( channel );
 		if ( !player.IsValid() ) {
 			throw new Exception( $"Error Something went wrong whilst creating Player: {channel.DisplayName}" );
