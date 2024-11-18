@@ -1,9 +1,9 @@
-### RP Base
+# RP Base
 ## A Roleplay base for S&BOX
-# Main Developer: Astral
-# Contributors: Bozy
+### Main Developer: Astral
+### Contributors: Bozy
 
-# Includes:
+### Includes:
 
 - Job System
   - Loadoat
@@ -13,7 +13,7 @@
 - Player Spawns
 - Garry's Mod hook system re-build.
 
-# Todo:
+### Todo:
 
 - Usergroup system (ranks, permissions)
 - Item/Weapon/Inventory system
