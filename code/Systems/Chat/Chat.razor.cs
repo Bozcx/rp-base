@@ -71,15 +71,16 @@ public partial class Chat
 			return;
 		}
 
-		if ( string.IsNullOrWhiteSpace( MessageText ) ) { return;}
+		if ( string.IsNullOrWhiteSpace( MessageText ) ) { return; }
 		var msg = new ChatMessage()
 		{
-			Text = MessageText.Substring(2).Trim(),
+			Text = MessageText,
 			Author = sender.GetSteamID(),
             DisplayName = sender.DisplayName,
 			Time = DateTime.Now,
 			IsActive = true,
-			IsOOC = MessageText.StartsWith("//")
+			IsOOC = MessageText.StartsWith("//"),
+			IsSytemMessage = false
 		};
 		Scene.Dispatch( new PlayerSendMessage( sender, msg ) );
         MessageText = "";

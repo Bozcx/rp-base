@@ -25,7 +25,11 @@ public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>,
 		if ( !Networking.IsActive )
 		{
 			Log.Info( $"Starting a new lobby server." );
-			Networking.CreateLobby();
+			Networking.CreateLobby(new LobbyConfig() {
+				MaxPlayers = 999999,
+				Privacy = LobbyPrivacy.Public,
+				Name = "Site-19"
+			});
 		}
 	}
 
@@ -65,6 +69,19 @@ public sealed class GameNetworkManager : SingletonComponent<GameNetworkManager>,
 		if ( !player.Network.Active ){
 			player.GameObject.NetworkSpawn( channel );
 		}
+
+			var msg = new ChatMessage()
+			{
+				Text = $"{player.DisplayName} has joined the game.",
+				Author = player.GetSteamID(),
+				DisplayName = player.DisplayName,
+				Time = DateTime.Now,
+				IsActive = true,
+				IsOOC = false,
+				IsSytemMessage = true
+			};
+
+			Scene.Dispatch( new PlayerSendMessage( player, msg ) );
 
 		Log.Info( $"Player '{channel.DisplayName}' Has Finished Initializing." );
 	}

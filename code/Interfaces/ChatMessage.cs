@@ -8,4 +8,5 @@ public record ChatMessage
     public DateTime Time { get; init; }
     public bool IsOOC { get; set; } = false;
     public bool IsActive { get; set; }
+    public bool IsSytemMessage { get; set; }
 }
